@@ -52,7 +52,7 @@ try:
     WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.ID, "fnet_karpaten_reservation_client_firstName"))).send_keys("Ovidiu - TESTE")
     WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.ID, "fnet_karpaten_reservation_client_email"))).send_keys("diac5@gmail.com")
+        EC.element_to_be_clickable((By.ID, "fnet_karpaten_reservation_client_email"))).send_keys("diac6@gmail.com")
     WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.ID, "fnet_karpaten_reservation_client_phone"))).send_keys("0754775329")
 
