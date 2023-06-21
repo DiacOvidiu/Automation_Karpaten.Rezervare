@@ -171,22 +171,20 @@ try:
     sleep(3)
     # Așteptați confirmarea rezervării
 
-try:
-    # Așteptați confirmarea rezervării și obțineți ID-ul de rezervare
-    element = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR, "span.page-subtitle strong")))
-    reservation_id = element.text.strip()
-    print("Rezervarea a fost realizată cu succes!")
-    print("ID rezervare:", reservation_id)
+    #Așteptați confirmarea rezervării
+    try:
+        # Așteptați confirmarea rezervării și obțineți ID-ul de rezervare
+        element = WebDriverWait(driver, 10).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, "span.page-subtitle strong")))
+        reservation_id = element.text.strip()
+        print("Rezervarea a fost realizată cu succes!")
+        print("ID rezervare:", reservation_id)
 
-    is_id_valid = True
-    if not isinstance(reservation_id, int) or reservation_id <= 0:
-        is_id_valid = False
+    except Exception as e:
+        import traceback
 
-    assert is_id_valid == True
-
-except Exception as e:
-    print("A apărut o eroare în timpul rezervării:")
-    traceback.print_exc()
+        print("A apărut o eroare în timpul rezervării:")
+        traceback.print_exc()
 
 finally:
     # Închideți browser-ul și încheiați sesiunea
